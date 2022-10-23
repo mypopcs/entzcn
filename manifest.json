@@ -1,0 +1,45 @@
+{
+    "name": "汉化插件",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "应用型英文软件云汉化 Chrome插件",
+    "homepage": "http://www.figma.com",
+    "icons": {
+        "64": "images/64.png"
+    },
+    "permissions": [
+        "<all_urls>",
+        "tabs",
+        "history",
+        "unlimitedStorage",
+        "contextMenus",
+        "storage",
+        "topSites",
+        "activeTab",
+        "webRequest",
+        "webRequestBlocking"
+    ],
+    "content_scripts": [
+        {
+          "matches": [
+            "*://*.figma.com/*","*://www.baidu.com/*"
+          ],
+          "js": [
+            "js/jquery-3.6.1.min.js",
+            "js/dataHandle.js"
+          ],
+          "css": ["css/index.css"],
+          "run_at": "document_end",
+          "all_frames": true
+        }
+    ],
+    "background":{
+       "scripts":[
+          "js/jquery-3.6.1.min.js",
+          "js/background.js"
+       ]
+    },
+    "browser_action":{
+       "default_icon":"images/64.png"
+    }
+}
